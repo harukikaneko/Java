@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>執行条件詳細</title>
+<link rel="stylesheet" href="pop.css">
+<link href="css/boot.css" rel="stylesheet">
+</head>
+<body>
+	<main> <script type="text/javascript" src="js/b.js"></script> <script type="text/javascript" src="js/bo.js"></script>
+	<script type="text/javascript" src="js/boo.js"></script>
+	<div class="container">
+		<div class="wrapper">
+			<form id="loginID" action="LoginServlet" method="post"
+				class="form-signin">
+				<h3 class="s1-hdg-lv3__element">指値（さしね）</h3>
+				<hr class="colorgraph">
+				<p>価格を指定する注文。買指値を出した時点で、株の値段が買指値より安い場合は、その安い値段で買えます。また、その反対に売指値を出した時点で、株の値段が売指値より高い場合は、その高い値段で売れます。
+					※注文は指値の値段がついても必ずしも約定しないケースがありますので、ご注意ください。</p>
+
+				<h3 class="s1-hdg-lv3__element">成行（なりゆき）</h3>
+				<hr class="colorgraph">
+				<p>価格にこだわらず、いくらでもいいから売る、または買う注文。</p>
+
+				<h3 class="s1-hdg-lv3__element" id="skip1-5">寄付（よりつき）</h3>
+				<hr class="colorgraph">
+				<p>立会時間の寄付のみ有効な注文。前場の寄付前に入力すると「前場の寄付」、後場の寄付前に入力すると「後場の寄付」となります。なお、ザラバ中に入力するとすぐに「出来ず」となり、注文は失効します。</p>
+				<h3 class="s1-hdg-lv3__element" id="skip1-6">引け（ひけ）</h3>
+				<hr class="colorgraph">
+				<p>立会時間の引けのみ有効な注文。前場終了前に入力すると「前場引け」に執行され、約定しなかった場合には「出来ず」となり後場には繰越しされません。前場終了以後大引け前に入力すると「大引け」に執行されます。「ザラバ引け」の場合約定しません。また前場引け以前の時間に「大引け」を選択することはできません。</p>
+				</form></div></div></main>
+</body>
+</html>

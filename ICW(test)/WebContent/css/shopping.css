@@ -1,0 +1,184 @@
+html, body {
+	width: 100%;
+	background-color: hsl(0, 0%, 97%);
+	font-family: Meiryo, sans-serif;
+}
+
+header {
+	width: 100%;
+	text-align: right;
+	background-color: #90EE90;
+	height: 55px;
+	line-height: 55px;
+}
+
+main {
+	width: 90%;
+	margin: 1rem auto;
+}
+
+h1 {
+	font-size: 2rem;
+	font-weight: bold;
+}
+
+#next:hover{
+	background-color: #fcfcaa;
+	cursor: pointer;
+}
+
+#prev:hover{
+	background-color: #fcfcaa;
+	cursor: pointer;
+}
+
+h2 {
+	font-size: 1.8rem;
+	font-weight: bold;
+}
+
+.title {
+	background-color: #eee;
+	padding: .2rem;
+	border: .2rem solid #ccc;
+}
+
+p {
+	font-size: 1.1rem;
+}
+
+.buttons {
+	display: block;
+	width: 33%;
+	margin: 1rem auto;
+	text-align: center;
+}
+
+table.table_form {
+	background: hsl(0, 0%, 97%);
+	padding: .1rem;
+	margin: 1rem auto;
+	border: .2rem solid #ccc;
+}
+
+table.table_order{
+	table-layout: auto;
+	border-collapse: collapse width: 100%;
+	margin: 1rem auto;
+	table-layout: fixed;
+	word-wrap: break-word;
+	border: 1px solid green;
+	background-color: hsl(0, 0%, 97%);
+	text-align: center;
+	line-height: 2;
+	
+}
+
+.shopping_table {
+	border-collapse: collapse width: 100%;
+	margin: 1rem auto;
+	table-layout: fixed;
+	word-wrap: break-word;
+	border: 1px solid green;
+	background-color: hsl(0, 0%, 97%);
+	text-align: center;
+	line-height: 2;
+}
+
+th, td {
+	border: .2rem solid #ccc;
+	text-align: center;
+}
+
+.int {
+	text-align: right;
+}
+
+.button {
+	text-align: center;
+}
+
+.list {
+	width: 90%;
+	margin: 1rem auto;
+}
+
+div.login_pane {
+	background: hsl(0, 0%, 97%);
+	width: 500px;
+	padding: 1rem;
+	margin: 2rem auto;
+	border: 1px solid #ccc;
+}
+
+.common_button {
+	display: inline-block;
+	width: 120px;
+	font-size: 1rem;
+	text-align: center;
+	padding: 1rem 1.5rem;
+	margin: 1rem auto;
+	border-radius: .5rem;
+	background-color: #49a9d4;
+	color: hsl(0, 0%, 97%);
+}
+
+
+.common_button:hover{
+	background-color: #009999;
+}
+
+div.my {
+	text-align: center;
+}
+
+my {
+	text-align: center;
+}
+
+a:hover {
+	background-color: #fcfcaa;
+}
+
+.back_button {
+	display: inline-block;
+	width: 120px;
+	font-size: 1rem;
+	text-align: center;
+	padding: 1rem 1.5rem;
+	margin: 1rem auto;
+	border-radius: .5rem;
+	background-color: #49a9d4;
+	color: hsl(0, 0%, 97%);
+}
+
+
+.back_button:hover {
+	background-color: #009999;
+}
+
+.resultSize {
+	width: 50%;
+	height: 100px;
+	margin: auto;
+}
+
+.errorSize {
+	width: 80%;
+	height: 100px;
+	margin: auto;
+}
+
+.loginFailed_button {
+	display: inline-block;
+	width: 200px;
+	font-size: 1rem;
+	text-align: center;
+	padding: 1rem 1.5rem;
+	margin: 1rem auto;
+	border-radius: .5rem;
+	background-color: #49a9d4;
+	color: hsl(0, 0%, 97%);
+}
+
+}

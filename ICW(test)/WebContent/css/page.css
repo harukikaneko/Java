@@ -1,0 +1,28 @@
+#main ul.pageNav02 {
+	margin: 0 0 10px;
+	padding: 10px 10px 5px;
+	background: #fff;
+	border: 1px solid #ccc;
+	text-align: center;
+}
+
+#main ul.pageNav02 li {
+	display: inline;
+	margin: 0 2px;
+	padding: 0;
+}
+
+#main ul.pageNav02 li span{
+	display: inline-block;
+	margin-bottom: 5px;
+	padding: 5px 13px;
+	background: #eeeff7;
+	text-decoration: none;
+	vertical-align: middle;
+}
+
+#main ul.pageNav02 li a:hover {
+	color: #000;
+	background: #ccf;
+	border-color: #00f;
+}
