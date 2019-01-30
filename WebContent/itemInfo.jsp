@@ -163,8 +163,8 @@
 			<canvas id="myChart" width="200" height="50"></canvas>
 			<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.4/Chart.min.js"></script>
 			<script type="text/javascript">
-		//項目用の配列を定義		
-				<%for (weeklyStockBean bean : wsbList) {%>			
+			//項目用の配列を定義
+				<%for (weeklyStockBean bean : wsbList) {%>
 			var array01 = ["1日前", "2日前", "3日前", "4日前", "5日前", "6日前", "7日前"];
 
 					var array02 = [];
@@ -189,25 +189,15 @@
 							label: '一週間の株価変動',
 							data: array02,
 							backgroundColor: "rgba(153,255,51,0.4)",
-
-
 						}]
-
 					},
 					options: {
-
 						scales: {
-
 							//縦軸の設定
-
 							yAxes: [{
-
 								ticks: {
-
 									//最小値を0にする
-
 									beginAtZero: true
-
 								}
 							}]
 						}
