@@ -55,26 +55,24 @@ public class excel extends HttpServlet {
 		String status = request.getParameter("status");
 		System.out.println(status);
 		System.out.println(market);
-		
-		// 注文DTOをExcelWriterに渡し、エクセル書き込み実行
 
-		
+		// 注文DTOをExcelWriterに渡し、エクセル書き込み実行
 
 		request.setAttribute("user_id", user_id);
 
 		// 画面遷移
-		//request.getRequestDispatcher("HistoryInfoServlet?user_id=" + name).forward(request, response);
+		// request.getRequestDispatcher("HistoryInfoServlet?user_id=" +
+		// name).forward(request, response);
 
 		String outputExcel = "";
 		String outputPdf = "";
 
 		// 既存エクセルファイルを取得
-		final String inputDir = "/home/flairlink/git/ICW/ICW(test)/WebContent/excel/";
+		final String inputDir = "/home/flairlink/eclipse-workspace/JavaEC/WebContent/excel/";
 
 		// 変更するエクセルファイルを指定
 		FileInputStream editEx = new FileInputStream(inputDir + "取引報告書.xlsx");
 		Workbook wb = null;
-
 
 		// 出力ファイル名
 
@@ -134,12 +132,12 @@ public class excel extends HttpServlet {
 		// 取得した箇所に値をセット
 		cell.setCellValue(name);
 
-		 //12行目取得
-		 row = sheet.getRow(11);
-		 //5列目取得
-		 cell = row.getCell(4);
-		 //取得した箇所に値をセット
-		 cell.setCellValue(market);
+		// 12行目取得
+		row = sheet.getRow(11);
+		// 5列目取得
+		cell = row.getCell(4);
+		// 取得した箇所に値をセット
+		cell.setCellValue(market);
 
 		// 12行目取得
 		row = sheet.getRow(11);
@@ -148,12 +146,12 @@ public class excel extends HttpServlet {
 		// 取得した箇所に値をセット
 		cell.setCellValue(quantity);
 		//
-		
-		//12行目取得
+
+		// 12行目取得
 		row = sheet.getRow(11);
-		//7列目取得
+		// 7列目取得
 		cell = row.getCell(1);
-		//取得した箇所に値をセット
+		// 取得した箇所に値をセット
 		cell.setCellValue(status);
 
 		// 12行目取得
@@ -197,57 +195,56 @@ public class excel extends HttpServlet {
 			compEx.close();
 			wb.close();
 		}
-		
+
 		XSSFWorkbook excel = new XSSFWorkbook(outputExcel);
 		ByteArrayOutputStream buff = new ByteArrayOutputStream();
 		excel.write(buff);
-		 
+
 		// PDF変換時に渡すInputStreamを用意
 		ByteArrayInputStream in = new ByteArrayInputStream(buff.toByteArray());
 		buff.close();
-		 
+
 		// PDFの出力先を開く
-		FileOutputStream out = new FileOutputStream("/home/flairlink/git/ICW/ICW(test)/WebContent/pdf/ " + date + "取引報告書.pdf");
+		FileOutputStream out = new FileOutputStream(
+				"/home/flairlink/eclipse-workspace/JavaEC/WebContent/pdf/ " + date + "取引報告書.pdf");
 		outputPdf = "";
-        outputPdf = "/home/flairlink/git/ICW/ICW(test)/WebContent/pdf/ " + date + "取引報告書.pdf";
-		 
+		outputPdf = "/home/flairlink/eclipse-workspace/JavaEC/WebContent/pdf/ " + date + "取引報告書.pdf";
+
 		// OpenOfficeに接続(localhostの8100番ポート)
 		SocketOpenOfficeConnection con = new SocketOpenOfficeConnection(8100);
 		con.connect();
-		 
+
 		try {
-		    // ExcelからPDFへ変換
-		    DocumentConverter converter = new OpenOfficeDocumentConverter(con);
-		    converter.convert(
-		            in, new DefaultDocumentFormatRegistry().getFormatByFileExtension("xlsx"),
-		            out, new DefaultDocumentFormatRegistry().getFormatByFileExtension("pdf")
-		            );
-		            
-		            response.setContentType("application/octet-stream; ");
-		    		response.setHeader("Content-Disposition", "attachment; filename= " + date + "取引報告書");
-		    		// attachment でなく inline とかするとブラウザウィンドウ内に表示(ブラウザの仕様にもよるかもしれない)
-		    		 
-		    		OutputStream os = response.getOutputStream(); 
-		    		InputStream is = new FileInputStream(outputPdf);
-		    		int c;
-		    		while ((c = is.read()) != -1) { 
-		    		     os.write(c);
-		    		}
-		    		
-		    		os.close();
-		    		is.close();
-		    	
-	} catch (Exception e) {
-	    e.printStackTrace();
-	} finally {
-	    // OpenOfficeから切断
-	    // ここで確実に切断しないとスレッドが終了しません
-	    con.disconnect();
+			// ExcelからPDFへ変換
+			DocumentConverter converter = new OpenOfficeDocumentConverter(con);
+			converter.convert(in, new DefaultDocumentFormatRegistry().getFormatByFileExtension("xlsx"), out,
+					new DefaultDocumentFormatRegistry().getFormatByFileExtension("pdf"));
+
+			response.setContentType("application/octet-stream; ");
+			response.setHeader("Content-Disposition", "attachment; filename= " + date + "取引報告書");
+			// attachment でなく inline とかするとブラウザウィンドウ内に表示(ブラウザの仕様にもよるかもしれない)
+
+			OutputStream os = response.getOutputStream();
+			InputStream is = new FileInputStream(outputPdf);
+			int c;
+			while ((c = is.read()) != -1) {
+				os.write(c);
+			}
+
+			os.close();
+			is.close();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			// OpenOfficeから切断
+			// ここで確実に切断しないとスレッドが終了しません
+			con.disconnect();
+		}
+
+		out.flush();
+		out.close();
+		in.close();
+		excel.close();
 	}
-	 
-	out.flush();
-	out.close();
-	in.close();
-	excel.close();
-}
 }
