@@ -27,16 +27,16 @@ import login.LoginUserBean;
 @WebServlet("/SellItemServlet")
 public class SellItemServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public SellItemServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
-    @Override
+	/**
+	 * @see HttpServlet#HttpServlet()
+	 */
+	public SellItemServlet() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		Calendar cal = Calendar.getInstance();
@@ -52,7 +52,7 @@ public class SellItemServlet extends HttpServlet {
 		nFormat.setMinimumIntegerDigits(2);
 		String date = nFormat.format(day);
 		String m = nFormat.format(month);
-		
+
 		DecimalFormat dformat = new DecimalFormat("000000");
 		int a = HistoryDao.getDayDeal(d) + 1;
 		System.out.println(a);
@@ -94,26 +94,26 @@ public class SellItemServlet extends HttpServlet {
 		// 口座
 		String user_id = ((LoginUserBean) session.getAttribute("login_user_bean")).getId();
 		HistoryBean bean1 = HistoryDao.getHistory2(user_id, d);
-		int quantity1  = bean1.getQuantity();
+		int quantity1 = bean1.getQuantity();
 		System.out.println(quantity1);
 
-		if (quantity1  < quantity) {
+		if (quantity1 < quantity) {
 			request.setAttribute("errMsg2", "空売りはできません。");
 			RequestDispatcher rd = request.getRequestDispatcher("SellOrderServlet?name=" + name);
 			rd.forward(request, response);
 			System.out.println("無効な値です");
 		}
 
-				request.setAttribute("choice", choice);
-				request.setAttribute("select", select);
-				request.setAttribute("name", name);
-				request.setAttribute("code", code);
-				request.setAttribute("orderstatus", orderstatus);
-				request.setAttribute("sellbuy", sellbuy);
-				request.setAttribute("quantity", quantity);
-				// 注文確認画面に移動
-				RequestDispatcher rd = request.getRequestDispatcher("sell_confirm.jsp");
-				rd.forward(request, response);
-		
+		request.setAttribute("choice", choice);
+		request.setAttribute("select", select);
+		request.setAttribute("name", name);
+		request.setAttribute("code", code);
+		request.setAttribute("orderstatus", orderstatus);
+		request.setAttribute("sellbuy", sellbuy);
+		request.setAttribute("quantity", quantity);
+		// 注文確認画面に移動
+		RequestDispatcher rd = request.getRequestDispatcher("sell_confirm.jsp");
+		rd.forward(request, response);
+
 	}
 }

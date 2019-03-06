@@ -18,25 +18,22 @@ import login.LoginUserBean;
 @WebServlet("/favDelete")
 public class favDelete extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public favDelete() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
-	
+	/**
+	 * @see HttpServlet#HttpServlet()
+	 */
+	public favDelete() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
-	String user_id = ((LoginUserBean) request.getSession().getAttribute("login_user_bean")).getId();
-	String name = request.getParameter("name");
-	System.out.println(name);
-	
+		String user_id = ((LoginUserBean) request.getSession().getAttribute("login_user_bean")).getId();
+		String name = request.getParameter("name");
+		System.out.println(name);
 
-	
 		favDao dao = null;
 		try {
 			/*
@@ -52,17 +49,12 @@ public class favDelete extends HttpServlet {
 				dao.close();
 			}
 		}
-//		削除機能をあとでつける
-		
-		
-		
+		// 削除機能をあとでつける
+
 		request.setAttribute("msg", "削除しますた");
 		request.getRequestDispatcher("favlistServlet").forward(request, response);
-		}
-
-	
-
-
+	}
 
 	{
-}}
+	}
+}

@@ -108,12 +108,9 @@ public class HistoryDao {
 	/**
 	 * 購入履歴テーブルを更新します.
 	 *
-	 * @param user_id
-	 *            ユーザID
-	 * @param item_id
-	 *            商品ID
-	 * @param purchased_num
-	 *            購入数
+	 * @param user_id         ユーザID
+	 * @param item_id         商品ID
+	 * @param purchased_num   購入数
 	 * @param date
 	 * @param dateinfo
 	 * @param choice
@@ -122,8 +119,8 @@ public class HistoryDao {
 	 * @throws SQLException
 	 */
 	public void updateHistory(String user_id, String item_name, String item_id, int quatity, int purchased_total,
-			String select, String choice, String dateinfo, String date, String orderstatus, String sellbuy, String category)
-			throws SQLException {
+			String select, String choice, String dateinfo, String date, String orderstatus, String sellbuy,
+			String category) throws SQLException {
 		// SQL文を生成
 		// TODO:2-⑩insert文を追加
 		this.ps_ = this.con_.prepareStatement(
@@ -173,7 +170,7 @@ public class HistoryDao {
 		String sql = "UPDATE shopping SET status = '取消済', sell_buy = '取消' WHERE order_id = ?";
 		System.out.println(dateinfo);
 		try {
-			con = DriverManager.getConnection(url, user , password);
+			con = DriverManager.getConnection(url, user, password);
 			stmt = con.prepareStatement(sql);
 			stmt.setString(1, dateinfo);
 			// クエリの実行
@@ -244,7 +241,7 @@ public class HistoryDao {
 		}
 		return day_deal;
 	}
-	
+
 	public static HistoryBean getHistory2(String user_id, String d) {
 		System.out.println(user_id);
 		System.out.println(d);
@@ -270,6 +267,5 @@ public class HistoryDao {
 		}
 		return bean;
 	}
-
 
 }

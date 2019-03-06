@@ -44,9 +44,7 @@
 			</span>
 		</div>
 	</form>
-
 	<input class="back_button" onclick="history.back()" value="戻る">
 	</div>
-
 </body>
 </html>

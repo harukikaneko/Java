@@ -28,7 +28,7 @@ public class infoDao {
 	public static ArrayList<ItemBean> getItemInfo(String name, String code) {
 		String sql = "select * from meigara inner join stock on meigara.meigara_id = stock.meigara_id where meigara.meigara_name = ? or meigara.meigara_code = ? ";
 		ArrayList<ItemBean> item_bean = new ArrayList<>();
-  System.out.println(name);
+		System.out.println(name);
 		System.out.println(name);
 
 		try (Connection con = DriverManager.getConnection(url, user, password)) {
@@ -36,7 +36,6 @@ public class infoDao {
 			pstmt.setString(1, name);
 			pstmt.setString(2, code);
 			ResultSet rs = pstmt.executeQuery();
-
 
 			while (rs.next()) {
 				ItemBean ib = new ItemBean();
@@ -64,12 +63,12 @@ public class infoDao {
 		return item_bean;
 
 	}
-	
+
 	public static ArrayList<ItemBean> getItemInfo2(String code) {
 		String sql = "select * from meigara inner join stock on meigara.meigara_id = stock.meigara_id where meigara.meigara_code = ? ";
 		ArrayList<ItemBean> item_bean = new ArrayList<>();
 
-System.out.println(code);
+		System.out.println(code);
 		try (Connection con = DriverManager.getConnection(url, user, password)) {
 			PreparedStatement pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, code);
@@ -100,6 +99,7 @@ System.out.println(code);
 		return item_bean;
 
 	}
+
 	public static ArrayList<ItemBean> getItemInfo3(String name) {
 		String sql = "select * from meigara inner join stock on meigara.meigara_id = stock.meigara_id where meigara.meigara_name = ? ";
 		ArrayList<ItemBean> item_bean = new ArrayList<>();
@@ -134,6 +134,7 @@ System.out.println(code);
 		return item_bean;
 
 	}
+
 	public static ArrayList<weeklyStockBean> getWeeklyStock(String name, String code) {
 		System.out.println(name);
 		String sql = "select * from meigara inner join weekly_stock on meigara.meigara_id = weekly_stock.meigara_id where meigara.meigara_name = ? or meigara.meigara_code = ? ";

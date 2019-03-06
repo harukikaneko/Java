@@ -10,19 +10,20 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import login.LoginUserBean;
 
-@WebServlet(urlPatterns = {"/ResultServlet"})
+@WebServlet(urlPatterns = { "/ResultServlet" })
 public class ResultServlet extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the
+    // + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
      *
-     * @param request servlet request
+     * @param request  servlet request
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
+     * @throws IOException      if an I/O error occurs
      */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -32,16 +33,16 @@ public class ResultServlet extends HttpServlet {
     /**
      * Handles the HTTP <code>POST</code> method.
      *
-     * @param request servlet request
+     * @param request  servlet request
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
+     * @throws IOException      if an I/O error occurs
      */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
-        
+
         // ログインid取得
         String user_id = ((LoginUserBean) request.getSession().getAttribute("login_user_bean")).getId();
 
@@ -60,15 +61,16 @@ public class ResultServlet extends HttpServlet {
         System.out.println(sellbuy);
         System.out.println(orderstatus);
         System.out.println(category);
-        
+
         HistoryDao dao = null;
         try {
             /*
              * 商品ID と購入数を元にDBを更新
              */
             dao = new HistoryDao();
-            
-            dao.updateHistory(user_id,item_name, item_id, quantity, purchased_total, select, choice, dateinfo, date, orderstatus, sellbuy, category);//履歴の更新,あとでBeanに追加する
+
+            dao.updateHistory(user_id, item_name, item_id, quantity, purchased_total, select, choice, dateinfo, date,
+                    orderstatus, sellbuy, category);// 履歴の更新,あとでBeanに追加する
         } catch (SQLException sqle) {
             sqle.printStackTrace();
         } finally {

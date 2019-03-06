@@ -33,34 +33,28 @@ public class favServlet extends HttpServlet {
 		String code = request.getParameter("code");
 		System.out.println(data_condition);
 		System.out.println(name);
-		
 
-		
-			favDao dao = null;
-			try {
-				/*
-				 * 商品ID と購入数を元にDBを更新
-				 */
-				dao = new favDao();
+		favDao dao = null;
+		try {
+			/*
+			 * 商品ID と購入数を元にDBを更新
+			 */
+			dao = new favDao();
 
-				favDao.updateFav(name, user_id);
-			} catch (SQLException sqle) {
-				sqle.printStackTrace();
-			} finally {
-				if (dao != null) {
-					dao.close();
-				}
+			favDao.updateFav(name, user_id);
+		} catch (SQLException sqle) {
+			sqle.printStackTrace();
+		} finally {
+			if (dao != null) {
+				dao.close();
 			}
-//			削除機能をあとでつける
-			
-			ArrayList<ItemBean> item_bean = ShoppingDao.getItemBeanListByName(name, code);
-			request.setAttribute("item_bean", item_bean);
-			request.setAttribute("msg", "登録しました");
-			request.getRequestDispatcher("itemList.jsp").forward(request, response);
-			}
-	
-		
-	
+		}
+		// 削除機能をあとでつける
 
-	
+		ArrayList<ItemBean> item_bean = ShoppingDao.getItemBeanListByName(name, code);
+		request.setAttribute("item_bean", item_bean);
+		request.setAttribute("msg", "登録しました");
+		request.getRequestDispatcher("itemList.jsp").forward(request, response);
+	}
+
 }

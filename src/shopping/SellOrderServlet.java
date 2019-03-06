@@ -17,31 +17,31 @@ import javax.servlet.http.HttpSession;
 @WebServlet("/SellOrderServlet")
 public class SellOrderServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public SellOrderServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+	/**
+	 * @see HttpServlet#HttpServlet()
+	 */
+	public SellOrderServlet() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-    	HttpSession session = request.getSession();
-        if(session == null) {
-        	session.setMaxInactiveInterval( 600 );
-        	response.sendRedirect("loginFailed.jsp");
-        }
+		HttpSession session = request.getSession();
+		if (session == null) {
+			session.setMaxInactiveInterval(600);
+			response.sendRedirect("loginFailed.jsp");
+		}
 		request.setCharacterEncoding("UTF-8");
-		//String name = "";
+		// String name = "";
 		String name = request.getParameter("name");
 		System.out.println(name);
-		
+
 		// 購入ボタンがクリックされている場合は「購入」のパラメータが取得
-		//if ("注文".equals(request.getParameter(name))) {
-		//	code = name;
-		//}
+		// if ("注文".equals(request.getParameter(name))) {
+		// code = name;
+		// }
 		ArrayList<ItemBean> item_bean = infoDao.getItemInfo3(name);
 		request.setAttribute("item_bean", item_bean);
 
@@ -52,4 +52,3 @@ public class SellOrderServlet extends HttpServlet {
 	}
 
 }
-

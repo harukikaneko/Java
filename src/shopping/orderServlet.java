@@ -25,13 +25,13 @@ public class orderServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
-		//String name = "";
+		// String name = "";
 		String code = request.getParameter("code");
-		
+
 		// 購入ボタンがクリックされている場合は「購入」のパラメータが取得
-		//if ("注文".equals(request.getParameter(name))) {
-		//	code = name;
-		//}
+		// if ("注文".equals(request.getParameter(name))) {
+		// code = name;
+		// }
 		ArrayList<ItemBean> item_bean = infoDao.getItemInfo2(code);
 		request.setAttribute("item_bean", item_bean);
 
