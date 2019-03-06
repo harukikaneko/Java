@@ -8,7 +8,7 @@ import java.sql.SQLException;
  *
  */
 public class Shopping {
-	public ItemBean getItem(String item_id) {
+    public ItemBean getItem(String item_id) {
         ShoppingDao dao = null;
         ResultSet rs;
         ItemBean item_bean = null;
@@ -21,7 +21,7 @@ public class Shopping {
 
             // 検索結果を1レコードずつ処理
             while (rs.next()) {
-            	item_bean = new ItemBean();
+                item_bean = new ItemBean();
                 // 商品IDを設定
                 item_bean.setItemId(rs.getString("meigara_id"));
                 // 商品名を設定
@@ -29,9 +29,8 @@ public class Shopping {
                 // 商品価格を設定
                 item_bean.setItemCode(rs.getString("meigara_code"));
 
-                
-				// 商品一覧を格納するBeanクラスをインスタンス化
-                
+                // 商品一覧を格納するBeanクラスをインスタンス化
+
                 System.out.println("itembean: " + item_bean);
             }
 
@@ -46,6 +45,4 @@ public class Shopping {
         return item_bean;
     }
 
-
-	
 }

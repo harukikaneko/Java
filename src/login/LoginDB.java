@@ -18,15 +18,14 @@ public class LoginDB extends Login {
             // 画面で入力されたIDとパスワードを基にDB検索を実行
             rs = dao.selectUser(id, pass);
 
-            
-            while(rs.next()) {
+            while (rs.next()) {
                 // 検索結果が存在する場合はbeanに値をセット（結果が1件しか返らないことを想定）
                 bean = new LoginUserBean();
                 // ID（IDは引数のものをセット）
                 bean.setId(rs.getString("user_id"));
                 // 名前
                 bean.setName(rs.getString("user_name"));
-                
+
             }
         } catch (SQLException e) {
             e.printStackTrace();

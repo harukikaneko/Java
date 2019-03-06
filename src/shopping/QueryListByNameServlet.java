@@ -23,12 +23,10 @@ public class QueryListByNameServlet extends HttpServlet {
 		String code = req.getParameter("search_name");
 
 		ArrayList<ItemBean> item_bean = ShoppingDao.getItemBeanListByName(name, code);
-		
-		
 
 		if (item_bean.isEmpty()) {
 			req.setAttribute("errMsg", "該当項目がありません");
-            req.getRequestDispatcher("search.jsp").forward(req, resp);
+			req.getRequestDispatcher("search.jsp").forward(req, resp);
 		} else {
 			req.setAttribute("item_bean", item_bean);
 			req.getRequestDispatcher("itemList.jsp").forward(req, resp);

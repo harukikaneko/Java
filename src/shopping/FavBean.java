@@ -2,8 +2,8 @@ package shopping;
 
 import java.io.Serializable;
 
-public class FavBean implements Serializable{
-	
+public class FavBean implements Serializable {
+
 	private String item_name;
 
 	public String getItem_name() {
@@ -13,15 +13,14 @@ public class FavBean implements Serializable{
 	public void setItem_name(String item_name) {
 		this.item_name = item_name;
 	}
-	
-	public  FavBean() {
+
+	public FavBean() {
 		this.item_name = "";
-		
+
 	}
-	
 
 	public FavBean(String item_name) {
 		this.item_name = item_name;
 
-}
+	}
 }

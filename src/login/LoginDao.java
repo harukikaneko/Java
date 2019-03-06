@@ -6,39 +6,37 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-
 public class LoginDao {
-	private static String url = "jdbc:postgresql://localhost:5432/usersdb";
-	private static String user = "postgres";
-	private static String password = "password";
-	private static String jdbcDriver = "org.postgresql.Driver";
-	
-	static {
-		try {
-			Class.forName(jdbcDriver);
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-		}
-	}
-	
+    private static String url = "jdbc:postgresql://localhost:5432/usersdb";
+    private static String user = "postgres";
+    private static String password = "password";
+    private static String jdbcDriver = "org.postgresql.Driver";
+
+    static {
+        try {
+            Class.forName(jdbcDriver);
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
 
     private Connection con_ = null;
     private ResultSet rs_ = null;
     private PreparedStatement ps_ = null;
 
     public LoginDao() throws SQLException {
-        
-            // データベースと接続（本来はユーザやパスワードも別管理にしておくのが理想）
-            this.con_ = DriverManager.getConnection(url,user,password);
-        
+
+        // データベースと接続（本来はユーザやパスワードも別管理にしておくのが理想）
+        this.con_ = DriverManager.getConnection(url, user, password);
+
     }
 
     /**
      * データベースから指定されたIDとパスワードを使ってユーザ情報を検索します.
      *
-     * @param id	ログインID
-     * @param pass	パスワード
-     * @return	ユーザ情報（ResultSet）
+     * @param id   ログインID
+     * @param pass パスワード
+     * @return ユーザ情報（ResultSet）
      * @throws SQLException
      */
     public ResultSet selectUser(String id, String pass) throws SQLException {
@@ -48,13 +46,12 @@ public class LoginDao {
         // 生成したSQL文の「？」の部分にIDとパスワードをセット
         this.ps_.setString(1, id);
         this.ps_.setString(2, pass);
-        
 
         // SQLを実行
         this.rs_ = this.ps_.executeQuery();
-        
+
         System.out.println(id);
-        
+
         return this.rs_;
     }
 

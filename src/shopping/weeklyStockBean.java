@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 public class weeklyStockBean implements Serializable {
 	private static final long serialVersionUID = 1L;
-	
+
 	private String meigaraId;
 	private int sevenDaysAgo;
 	private int sixDaysAgo;
@@ -13,7 +13,7 @@ public class weeklyStockBean implements Serializable {
 	private int ThreeDaysAgo;
 	private int TwoDaysAgo;
 	private int OneDayAgo;
-	
+
 	public weeklyStockBean(String meigaraId, int sevenDaysAgo, int sixDaysAgo, int fiveDaysAgo, int fourDaysAgo,
 			int threeDaysAgo, int twoDaysAgo, int oneDayAgo) {
 		this.meigaraId = meigaraId;

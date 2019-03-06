@@ -171,4 +171,4 @@
 	<input class="common_button" onclick="history.back()" value="戻る">&emsp;
 	<input class="common_button" type="submit" value="注文確定">
 </div>
-	</html>
+</html>

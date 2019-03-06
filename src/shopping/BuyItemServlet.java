@@ -61,7 +61,7 @@ public class BuyItemServlet extends HttpServlet {
 		nFormat.setMinimumIntegerDigits(2);
 		String date = nFormat.format(day);
 		String m = nFormat.format(month);
-		
+
 		DecimalFormat dformat = new DecimalFormat("000000");
 		int a = HistoryDao.getDayDeal(d) + 1;
 		System.out.println(a);
@@ -73,8 +73,8 @@ public class BuyItemServlet extends HttpServlet {
 
 		int price = Integer.parseInt(request.getParameter("price"));
 		int urikai = Integer.parseInt(request.getParameter("urikai"));
-		int add1 = (int) (1000*1.08);
-		int add2 = (int) (1500 * 1.08) ;
+		int add1 = (int) (1000 * 1.08);
+		int add2 = (int) (1500 * 1.08);
 		int quantity = Integer.parseInt(request.getParameter("quantity"));
 		// int purchased_total = price * quantity * urikai + add1;
 		int purchased_total = urikai * quantity;
@@ -82,7 +82,7 @@ public class BuyItemServlet extends HttpServlet {
 		String select = request.getParameter("select");
 		String category = request.getParameter("category");
 		System.out.println(category);
-		
+
 		// int purchased_total =
 		// Integer.parseInt(request.getParameter("purchased_total"));
 

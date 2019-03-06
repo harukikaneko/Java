@@ -13,8 +13,6 @@ public class ItemBean implements Serializable {
 	private int kabuka;
 	private int text;
 	private String kanriSeiri;
-		
-	
 
 	public String getKanriSeiri() {
 		return kanriSeiri;
@@ -149,7 +147,6 @@ public class ItemBean implements Serializable {
 
 	private int urikai;
 	private int totalPrice;
-
 
 	public String getItemCode() {
 		return item_code_;

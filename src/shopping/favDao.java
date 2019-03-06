@@ -56,12 +56,13 @@ public class favDao {
 			se.printStackTrace();
 		}
 	}
+
 	public static void updateFav(String name, String user_id) {
 		Connection con = null;
 		PreparedStatement stmt = null;
 		String sql = "insert into fav (meigara_name, user_id)values(?, ?)";
 		try {
-			con = DriverManager.getConnection(url, user , password);
+			con = DriverManager.getConnection(url, user, password);
 			stmt = con.prepareStatement(sql);
 			stmt.setString(1, name);
 			stmt.setString(2, user_id);
@@ -87,13 +88,13 @@ public class favDao {
 			}
 		}
 	}
-	
+
 	public static void deleteFav(String name, String user_id) {
 		Connection con = null;
 		PreparedStatement stmt = null;
 		String sql = "DELETE  FROM fav WHERE meigara_name = ? and user_id = ?";
 		try {
-			con = DriverManager.getConnection(url, user , password);
+			con = DriverManager.getConnection(url, user, password);
 			stmt = con.prepareStatement(sql);
 			stmt.setString(1, name);
 			stmt.setString(2, user_id);
@@ -133,10 +134,10 @@ public class favDao {
 			while (rs.next()) {
 				FavBean fb = new FavBean();
 				// 商品ID を取得
-				
+
 				// 商品名を取得
 				fb.setItem_name(rs.getString("meigara_name"));
-				
+
 				fav_beans.add(fb);
 			}
 		} catch (SQLException e) {
